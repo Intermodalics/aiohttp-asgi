@@ -4,7 +4,7 @@ from contextlib import contextmanager
 from types import MappingProxyType
 from typing import (
     Any, Awaitable, Callable, Coroutine, Dict, Generator, List, Mapping,
-    MutableMapping, Optional, Set, Tuple, TypedDict, Union,
+    MutableMapping, Optional, Set, Tuple, Union,
 )
 from urllib.parse import unquote
 from warnings import warn
@@ -17,6 +17,12 @@ from aiohttp.web import (
     WebSocketResponse,
 )
 from yarl import URL
+
+
+try:
+    from typing import TypedDict
+except ImportError:
+    from typing_extensions import TypedDict
 
 
 ASGIScopeType = MutableMapping[str, Any]
